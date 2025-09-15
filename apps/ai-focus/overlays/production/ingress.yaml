@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ai-focus-ingress
+  annotations:
+    traefik.ingress.kubernetes.io/router.rule: "Host(`ai-focus.org`)"
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  ingressClassName: "traefik"
+  tls:
+  - hosts:
+    - ai-focus.org
+    secretName: ai-focus-tls
+  rules:
+  - host: ai-focus.org
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: ai-focus-service
+            port:
+              number: 80
