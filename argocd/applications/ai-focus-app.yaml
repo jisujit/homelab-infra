@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/jisujit/ai-focus-infrastructure
+    repoURL: https://github.com/jisujit/homelab-infra
     targetRevision: HEAD
     path: apps/ai-focus/overlays/production
   destination:
