@@ -6,11 +6,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.rule: "Host(`ai-focus.org`)"
     traefik.ingress.kubernetes.io/router.tls: "true"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
-    argocd.argoproj.io/health-check: |
-      hs = {}
-      hs.status = "Healthy"
-      hs.message = "Ingress is healthy (Cloudflare tunnel, no LoadBalancer IP needed)"
-      return hs
+    argocd.argoproj.io/sync-options: SkipHealthCheck=true
 spec:
   ingressClassName: "traefik"
   tls:
