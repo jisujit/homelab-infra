@@ -6,6 +6,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.rule: "Host(`ai-focus.org`)"
     traefik.ingress.kubernetes.io/router.tls: "true"
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    argocd.argoproj.io/sync-options: "Validate=false"
 spec:
   ingressClassName: "traefik"
   tls:
